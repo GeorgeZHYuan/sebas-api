@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const Schema = mongoose.TaskSchema
+const Schema = mongoose.Schema
 
 const LabelSchema = new Schema ({
   labelName: {
@@ -20,4 +20,4 @@ const LabelSchema = new Schema ({
   }
 })
 
-export mongoose.model("Label", LabelSchema)
+module.exports = mongoose.model("Label", LabelSchema)

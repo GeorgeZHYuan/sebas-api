@@ -1,6 +1,8 @@
 const express = require('express')
 const api = express.Router()
 
+const task = require('../data/handlers/taskHandlers')
+const label = require('../data/handlers/labelHandlers')
 
 api.get('/', async (res, req) => {
   res.res(`<h1></h1>`)

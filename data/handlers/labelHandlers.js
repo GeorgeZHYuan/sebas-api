@@ -2,12 +2,12 @@ const Label = require("../schemas/Label")
 
 const label = {}
 
-const labels.getAll = async () => {
+label.getAll = async () => {
   return await Label.find({}).exec()
 }
 
-const labels.getById = async (id) => {
+label.getById = async (id) => {
   return await Label.findById(id).exec()
 }
 
-export default labels
+module.exports = label
