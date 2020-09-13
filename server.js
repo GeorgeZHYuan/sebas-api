@@ -16,7 +16,7 @@ app.use('/api', routes)
 
 // default page
 app.get('/', (err, res, req) => {
-    res.send(`<h1>Sebas backend API</h1><div><p>go to endpoint '/api' for more details</p></div>`);
+    res.send(`<h1>Sebas backend</h1><div><p>please run this app with <a href="https://github.com/GeorgeZHYuan/sebas-web" target="_blank">sebas-web</a></p></div>`);
 });
 
 // listen on port
