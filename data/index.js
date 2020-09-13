@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const uri = "mongodb+srv://sebas:tian@cluster0-q67cb.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb://<admin123>:<admin123>@ds253398.mlab.com:53398/sebas-db";
 const options = { useNewUrlParser: true, useUnifiedTopology: true }
 
 const data = {}
