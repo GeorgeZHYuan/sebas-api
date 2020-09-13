@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const uri = "mongodb://<admin123>:<admin123>@ds253398.mlab.com:53398/sebas-db";
+const uri = "mongodb+srv://sebas:sebas@sebas.q67cb.mongodb.net/sebasdb?retryWrites=true&w=majority"
 const options = { useNewUrlParser: true, useUnifiedTopology: true }
 
 const data = {}
@@ -8,12 +8,12 @@ const data = {}
 data.connected = false
 
 data.init = async () => {
-  await moogoose.connect(uri, options, async (err) => {
-    throw new Error(`Could not connect to MongoDB`)
-  })
-
-  data.connected = true
-  console.log(`Successfully connected to MongoDB`)
+	try {
+		await mongoose.connect(uri, options);
+		console.log('Connected to MongoDB');
+	} catch (err) {
+		console.log(err.message);
+	}
 }
 
 data.initIfNotStarted = async () => {
@@ -25,6 +25,7 @@ data.initIfNotStarted = async () => {
 data.close = async () => {
     await mongoose.disconnect();
     data.connected = false;
+    console.log("Disconnected from MongoDB")
 };
 
 module.exports = data;

@@ -5,6 +5,8 @@ const data = require('./data')
 const app = express()
 const port = process.env.PORT || 5000
 
+data.init()
+
 app.use('/api', routes)
 
 app.get('/', (err, res, req) => {
