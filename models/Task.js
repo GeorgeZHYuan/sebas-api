@@ -40,6 +40,8 @@ const TaskSchema = new mongoose.Schema({
     type: Boolean,
     required: true
   }
+}, {
+  timestamps: true
 })
 
 module.exports = mongoose.model("Task", TaskSchema);
