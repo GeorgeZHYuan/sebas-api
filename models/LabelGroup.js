@@ -12,7 +12,7 @@ const LabelGroupSchema = new Schema ({
       type: Schema.Types.ObjectId,
       ref: "Label"
     }],
-    required: false
+    required: true
   }
 }, {
   timestamps: true
