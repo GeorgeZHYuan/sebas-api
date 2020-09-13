@@ -3,75 +3,74 @@ const router = express.Router()
 
 const Label = require('../models/Label')
 
-router.post('/tasks', async (req, res) => {
-  const task = new Label(req.body)
+router.route('/labels')
+  .post(async (req, res) => {
+    const label = new Label(req.body)
 
-  try {
-    await task.save()
-    res.status(201).send(task)
-    
-  } catch (e) {
-    res.status(400).send(e)
-  }
-})
+    try {
+      await label.save()
+      res.status(201).send(label)
 
-router.get('/tasks', async (req, res) => {
-  try {
-    const tasks = await Label.find()
-
-    if (!tasks) {
-      res.status(404).send()
+    } catch (e) {
+      res.status(400).send(e)
     }
+  })
+  .get(async (req, res) => {
+    try {
+      const labels = await Label.find()
 
-    res.status(200).json(tasks)
-  } catch (e) {
-    res.status(500).send()
-  }
-})
+      if (!labels) {
+        res.status(404).send()
+      }
 
-router.get('/tasks/:id', async (req, res) => {
-  const filter = {_id: req.params.id}
-
-  try {
-    const task = await Task.findOne(filter)
-
-    if (!task) {
-      return res.status(404).send()
+      res.status(200).json(labels)
+    } catch (e) {
+      res.status(500).send()
     }
+  })
 
-    res.send(task)
-  } catch (e) {
-    res.status(500).send()
-  }
-})
+router.route('/labels/:id')
+  .get(async (req, res) => {
+    const filter = {_id: req.params.id}
 
-router.patch('/tasks/:id', async (req, res) => {
-  const filter = {_id: req.params.id}
-  const update = {...req.body}
+    try {
+      const label = await Label.findOne(filter)
 
-  try {
-    const task = await Label.findOneAndUpdate(filter, update)
-    res.send(task)
+      if (!label) {
+        return res.status(404).send()
+      }
 
-  } catch (e) {
-    res.status(400).send(e)
-  }
-})
-
-router.delete('/tasks/:id', async (req, res) => {
-  const filter = {_id: req.params.id}
-
-  try {
-    const task = await Label.findOneAndDelete(filter)
-
-    if (!task) {
-      return res.status(404).send()
+      res.send(label)
+    } catch (e) {
+      res.status(500).send()
     }
+  })
+  .patch(async (req, res) => {
+    const filter = {_id: req.params.id}
+    const update = {...req.body}
 
-    res.send(task)
-  } catch (e) {
-    res.status(500).send()
-  }
-})
+    try {
+      const label = await Label.findOneAndUpdate(filter, update)
+      res.send(label)
+
+    } catch (e) {
+      res.status(400).send(e)
+    }
+  })
+  .delete(async (req, res) => {
+    const filter = {_id: req.params.id}
+
+    try {
+      const label = await Label.findOneAndDelete(filter)
+
+      if (!label) {
+        return res.status(404).send()
+      }
+
+      res.send(label)
+    } catch (e) {
+      res.status(500).send()
+    }
+  })
 
 module.exports = router

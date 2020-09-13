@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const uri = "mongodb+srv://sebas:sebas@sebas.q67cb.mongodb.net/sebasdb?retryWrites=true&w=majority"
-const options = { useNewUrlParser: true, useUnifiedTopology: true }
+const options = {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useFindAndModify: true,
+}
 
 const data = {}
 
