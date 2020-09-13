@@ -2,22 +2,18 @@ const mongoose = require("mongoose")
 
 const Schema = mongoose.Schema
 
-const LabelSchema = new Schema ({
+const LabelGroupSchema = new Schema ({
   name: {
     type: String,
     required: true
   },
-  color: {
-    type: String,
-    required: true
-  },
-  tasks: {
+  labels: {
     type: [{
       type: Schema.Types.ObjectId,
-      ref: "Task"
+      ref: "Label"
     }],
     required: false
   }
 })
 
-module.exports = mongoose.model("Label", LabelSchema)
+module.exports = mongoose.model("LabelGroup", LabelGroupSchema)
