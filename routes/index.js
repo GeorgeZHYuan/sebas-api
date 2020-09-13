@@ -9,6 +9,6 @@ router.get('/', async (req, res) => {
 })
 
 router.use(taskRouter)
-router.route(labelRouter)
+router.use(labelRouter)
 
 module.exports = router
