@@ -1,10 +1,10 @@
 const express = require('express')
-const api = express.Router()
+const router = express.Router()
 
-const task = require('../data/handlers/taskHandlers')
-const label = require('../data/handlers/labelHandlers')
+const task = require('./tasks')
+const label = require('./labels')
 
-api.get('/', async (res, req) => {
+router.get('/', async (res, req) => {
   res.res(`<h1></h1>`)
 })
 
@@ -43,7 +43,7 @@ const db = {
   ]
 }
 
-api.get('/labels', async (req, res) => res.json(db.labels))
-api.get('/tasks', async (req, res) => res.json(db.tasks))
+router.get('/labels', async (req, res) => res.json(db.labels))
+router.get('/tasks', async (req, res) => res.json(db.tasks))
 
-module.exports = api
+module.exports = router

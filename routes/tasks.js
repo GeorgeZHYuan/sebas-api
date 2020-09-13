@@ -1,4 +1,4 @@
-const Task = require("../schemas/Task")
+const Task = require("../models/Task")
 
 const task = {}
 
