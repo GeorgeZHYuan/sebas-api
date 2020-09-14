@@ -5,7 +5,7 @@ const uri = "mongodb+srv://sebas:sebas@sebas.q67cb.mongodb.net/sebasdb?retryWrit
 const options = {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
-	useFindAndModify: true,
+	useFindAndModify: true
 }
 
 const db = {}
