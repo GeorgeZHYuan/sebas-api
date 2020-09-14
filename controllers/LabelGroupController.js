@@ -13,7 +13,7 @@ controller.createLabelGroup = async (req, res) => {
     res.status(201).send(labelGroup)
 
   } catch (e) {
-    res.status(400).send(e)
+    res.status(500).send(e)
   }
 }
 
@@ -56,7 +56,7 @@ controller.updateOneLabelGroup = async (req, res) => {
     res.send(labelGroup)
 
   } catch (e) {
-    res.status(400).send(e)
+    res.status(500).send(e)
   }
 }
 
@@ -72,6 +72,23 @@ controller.deleteOneLabelGroup = async (req, res) => {
 
     res.send(labelGroup)
   } catch (e) {
+    res.status(500).send()
+  }
+}
+
+controller.getListedLabels = async (req, res) => {
+  const filter = {_id: req.params.id}
+
+  try {
+    const labelGroup = await LabelGroup.findOne(filter)
+      .populate("labels")
+
+    if (!labelGroup) {
+      return res.status(404).send()
+    }
+
+    res.status(200).send(labelGroup.labels)
+  } catch(e) {
     res.status(500).send()
   }
 }

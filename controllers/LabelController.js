@@ -76,4 +76,21 @@ controller.deleteOneLabel = async (req, res) => {
   }
 }
 
+controller.getListedTasks = async (req, res) => {
+  const filter = {_id: req.params.id}
+
+  try {
+    const label = await Label.findOne(filter)
+      .populate("tasks")
+
+    if (!label) {
+      return res.status(404).send()
+    }
+
+    res.status(200).send(label.tasks)
+  } catch(e) {
+    res.status(500).send()
+  }
+}
+
 module.exports = controller

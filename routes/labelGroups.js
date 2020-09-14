@@ -12,4 +12,7 @@ router.route('/labelGroups/:id')
   .patch(LabelGroup.updateOneLabelGroup)
   .delete(LabelGroup.deleteOneLabelGroup)
 
+router.route('/labelGroups/:id/labels')
+  .get(LabelGroup.getListedLabels)
+
 module.exports = router

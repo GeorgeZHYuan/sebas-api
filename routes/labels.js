@@ -12,4 +12,7 @@ router.route('/labels/:id')
   .patch(Label.updateOneLabel)
   .delete(Label.deleteOneLabel)
 
+router.route('/labels/:id/tasks')
+  .get(Label.getListedTasks)
+
 module.exports = router
