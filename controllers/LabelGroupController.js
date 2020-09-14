@@ -76,6 +76,7 @@ controller.deleteOneLabelGroup = async (req, res) => {
   }
 }
 
+// Get array of labels listed by the label group
 controller.getListedLabels = async (req, res) => {
   const filter = {_id: req.params.id}
 

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// TODO: Move to untracked config file later.
 const uri = "mongodb+srv://sebas:sebas@sebas.q67cb.mongodb.net/sebasdb?retryWrites=true&w=majority"
 const options = {
 	useNewUrlParser: true,
@@ -20,12 +21,14 @@ db.init = async () => {
 	}
 }
 
+// UNUSED
 db.initIfNotStarted = async () => {
     if (!data.connected) {
         await data.init();
     }
 };
 
+// UNUSED
 db.close = async () => {
     await mongoose.disconnect();
     data.connected = false;

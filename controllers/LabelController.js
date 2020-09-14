@@ -76,6 +76,7 @@ controller.deleteOneLabel = async (req, res) => {
   }
 }
 
+// Get array of tasks marked by the label
 controller.getListedTasks = async (req, res) => {
   const filter = {_id: req.params.id}
 
