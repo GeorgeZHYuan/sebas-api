@@ -1,12 +1,12 @@
 const express = require('express')
 const routes = require('./routes')
-const data = require('./db')
+const db = require('./data/db')
 
 const app = express()
 const port = process.env.PORT || 5000
 
 // connect to database
-data.init()
+db.init()
 
 // init middleware
 app.use(express.json())

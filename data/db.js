@@ -7,11 +7,11 @@ const options = {
 	useFindAndModify: true,
 }
 
-const data = {}
+const db = {}
 
-data.connected = false
+db.connected = false
 
-data.init = async () => {
+db.init = async () => {
 	try {
 		await mongoose.connect(uri, options);
 		console.log('Connected to MongoDB');
@@ -20,16 +20,16 @@ data.init = async () => {
 	}
 }
 
-data.initIfNotStarted = async () => {
+db.initIfNotStarted = async () => {
     if (!data.connected) {
         await data.init();
     }
 };
 
-data.close = async () => {
+db.close = async () => {
     await mongoose.disconnect();
     data.connected = false;
     console.log("Disconnected from MongoDB")
 };
 
-module.exports = data;
+module.exports = db

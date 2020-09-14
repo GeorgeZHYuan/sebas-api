@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const LabelGroup = require('../models/LabelGroup')
+const LabelGroup = require('../data/models/LabelGroup')
 
 const controller = {}
 

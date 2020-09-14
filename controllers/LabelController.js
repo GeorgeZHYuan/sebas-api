@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const Label = require('../models/Label')
+const Label = require('../data/models/Label')
 
 const controller = {}
 
