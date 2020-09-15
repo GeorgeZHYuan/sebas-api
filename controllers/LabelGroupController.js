@@ -20,6 +20,7 @@ controller.createLabelGroup = async (req, res) => {
 controller.getAllLabelGroups = async (req, res) => {
   try {
     const labelGroups = await LabelGroup.find()
+      .populate("labels")
 
     if (!labelGroups) {
       res.status(404).send()

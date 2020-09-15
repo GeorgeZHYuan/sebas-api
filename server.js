@@ -1,4 +1,6 @@
 const express = require('express')
+const cors = require('cors')
+
 const routes = require('./routes')
 const db = require('./data/db')
 
@@ -12,6 +14,7 @@ db.init()
 
 // init middleware
 app.use(express.json())
+app.use(cors())
 
 // init routes
 app.use('/api', routes)
