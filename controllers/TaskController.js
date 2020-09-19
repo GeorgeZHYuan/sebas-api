@@ -18,8 +18,18 @@ controller.createTask = async (req, res) => {
 }
 
 controller.getTasks = async (req, res) => {
+  const filters = (req.query['labels']) ? {
+    $and: req.query.labels.split(' ').map(labelId => {
+      return {
+        labels: {
+          $in: [labelId]
+        }
+      }
+    })
+  } : {}
+
   try {
-    const tasks = await Task.find()
+    const tasks = await Task.find(filters)
 
     if (!tasks) {
       res.status(404).send()
@@ -32,10 +42,10 @@ controller.getTasks = async (req, res) => {
 }
 
 controller.getTask = async (req, res) => {
-  const filter = {_id: req.params.id}
+  const filters = {_id: req.params.id}
 
   try {
-    const task = await Task.findOne(filter)
+    const task = await Task.findOne(filters)
 
     if (!task) {
       return res.status(404).send()
@@ -48,11 +58,11 @@ controller.getTask = async (req, res) => {
 }
 
 controller.updateTask = async (req, res) => {
-  const filter = {_id: req.params.id}
+  const filters = {_id: req.params.id}
   const update = {...req.body}
 
   try {
-    const task = await Task.findOneAndUpdate(filter, update)
+    const task = await Task.findOneAndUpdate(filters, update)
     res.send(task)
 
   } catch (e) {
@@ -61,10 +71,10 @@ controller.updateTask = async (req, res) => {
 }
 
 controller.deleteTask = async (req, res) => {
-  const filter = {_id: req.params.id}
+  const filters = {_id: req.params.id}
 
   try {
-    const task = await Task.findOneAndDelete(filter)
+    const task = await Task.findOneAndDelete(filters)
 
     if (!task) {
       return res.status(404).send()
