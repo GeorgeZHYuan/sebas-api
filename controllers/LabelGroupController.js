@@ -17,7 +17,7 @@ controller.createLabelGroup = async (req, res) => {
   }
 }
 
-controller.getAllLabelGroups = async (req, res) => {
+controller.getLabelGroups = async (req, res) => {
   try {
     const labelGroups = await LabelGroup.find()
       .populate("labels")
@@ -32,7 +32,7 @@ controller.getAllLabelGroups = async (req, res) => {
   }
 }
 
-controller.getOneLabelGroup = async (req, res) => {
+controller.getLabelGroup = async (req, res) => {
   const filter = {_id: req.params.id}
 
   try {
@@ -48,7 +48,7 @@ controller.getOneLabelGroup = async (req, res) => {
   }
 }
 
-controller.updateOneLabelGroup = async (req, res) => {
+controller.updateLabelGroup = async (req, res) => {
   const filter = {_id: req.params.id}
   const update = {...req.body}
 
@@ -61,7 +61,7 @@ controller.updateOneLabelGroup = async (req, res) => {
   }
 }
 
-controller.deleteOneLabelGroup = async (req, res) => {
+controller.deleteLabelGroup = async (req, res) => {
   const filter = {_id: req.params.id}
 
   try {

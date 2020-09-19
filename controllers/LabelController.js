@@ -17,7 +17,7 @@ controller.createLabel = async (req, res) => {
   }
 }
 
-controller.getAllLabels = async (req, res) => {
+controller.getLabels = async (req, res) => {
   try {
     const labels = await Label.find()
 
@@ -31,7 +31,7 @@ controller.getAllLabels = async (req, res) => {
   }
 }
 
-controller.getOneLabel = async (req, res) => {
+controller.getLabel = async (req, res) => {
   const filter = {_id: req.params.id}
 
   try {
@@ -47,7 +47,7 @@ controller.getOneLabel = async (req, res) => {
   }
 }
 
-controller.updateOneLabel = async (req, res) => {
+controller.updateLabel = async (req, res) => {
   const filter = {_id: req.params.id}
   const update = {...req.body}
 
@@ -60,7 +60,7 @@ controller.updateOneLabel = async (req, res) => {
   }
 }
 
-controller.deleteOneLabel = async (req, res) => {
+controller.deleteLabel = async (req, res) => {
   const filter = {_id: req.params.id}
 
   try {

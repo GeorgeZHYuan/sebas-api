@@ -5,11 +5,11 @@ const Task = require('../controllers/TaskController')
 
 router.route('/tasks')
   .post(Task.createTask)
-  .get(Task.getAllTasks)
+  .get(Task.getTasks)
 
 router.route('/tasks/:id')
-  .get(Task.getOneTask)
-  .patch(Task.updateOneTask)
-  .delete(Task.deleteOneTask)
+  .get(Task.getTask)
+  .patch(Task.updateTask)
+  .delete(Task.deleteTask)
 
 module.exports = router

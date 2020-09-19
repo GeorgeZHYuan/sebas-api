@@ -5,12 +5,12 @@ const LabelGroup = require('../controllers/LabelGroupController')
 
 router.route('/labelGroups')
   .post(LabelGroup.createLabelGroup)
-  .get(LabelGroup.getAllLabelGroups)
+  .get(LabelGroup.getLabelGroups)
 
 router.route('/labelGroups/:id')
-  .get(LabelGroup.getOneLabelGroup)
-  .patch(LabelGroup.updateOneLabelGroup)
-  .delete(LabelGroup.deleteOneLabelGroup)
+  .get(LabelGroup.getLabelGroup)
+  .patch(LabelGroup.updateLabelGroup)
+  .delete(LabelGroup.deleteLabelGroup)
 
 router.route('/labelGroups/:id/labels')
   .get(LabelGroup.getListedLabels)

@@ -17,7 +17,7 @@ controller.createTask = async (req, res) => {
   }
 }
 
-controller.getAllTasks = async (req, res) => {
+controller.getTasks = async (req, res) => {
   try {
     const tasks = await Task.find()
 
@@ -31,7 +31,7 @@ controller.getAllTasks = async (req, res) => {
   }
 }
 
-controller.getOneTask = async (req, res) => {
+controller.getTask = async (req, res) => {
   const filter = {_id: req.params.id}
 
   try {
@@ -47,7 +47,7 @@ controller.getOneTask = async (req, res) => {
   }
 }
 
-controller.updateOneTask = async (req, res) => {
+controller.updateTask = async (req, res) => {
   const filter = {_id: req.params.id}
   const update = {...req.body}
 
@@ -60,7 +60,7 @@ controller.updateOneTask = async (req, res) => {
   }
 }
 
-controller.deleteOneTask = async (req, res) => {
+controller.deleteTask = async (req, res) => {
   const filter = {_id: req.params.id}
 
   try {

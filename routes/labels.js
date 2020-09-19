@@ -5,12 +5,12 @@ const Label = require('../controllers/LabelController')
 
 router.route('/labels')
   .post(Label.createLabel)
-  .get(Label.getAllLabels)
+  .get(Label.getLabels)
 
 router.route('/labels/:id')
-  .get(Label.getOneLabel)
-  .patch(Label.updateOneLabel)
-  .delete(Label.deleteOneLabel)
+  .get(Label.getLabel)
+  .patch(Label.updateLabel)
+  .delete(Label.deleteLabel)
 
 router.route('/labels/:id/tasks')
   .get(Label.getListedTasks)
